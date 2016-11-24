@@ -8,40 +8,55 @@ public class shipshape : MonoBehaviour {
 	public float maxSpeed = 10f;
 	public float accelerationRate = 5f;
 	public float rotationSpeed = 3.6f;
+	public float speed;
 
-	public float currentSpeed = 0f;
 	public Quaternion engineRotation;
 	Rigidbody2D rb;
 	Rigidbody2D peikkos;
-	Transform ship;
-	Transform target; 
+	Vector3 target; 
+	Vector2 mousepos; 
+	Vector3 screenpos; 
+	Vector3 zEU; 
 	// Use this for initialization
 	void Start () {
 		rb = GetComponent<Rigidbody2D> ();
 		peikkos = peikko.GetComponent<Rigidbody2D> ();
-		ship = transform; 
+		target = new Vector2 (0, 1); 
 	}
 
 	// Update is called once per frame
 
 
 	void FixedUpdate () {
-		target.position.z = (Input.GetAxis ("Horizontal") * 90);
-		Vector2 relativepos = target.position - transform.position; 
-		Quaternion rotation = Quaternion.LookRotation (relativepos);
 
-		peikkos.rotation += (Input.GetAxis ("Horizontal") * rotationSpeed );
-		rb.rotation += (Input.GetAxis ("Cabin") * rotationSpeed);
-		engineRotation = peikko.transform.rotation;
-		Vector2 viktor = engineRotation * Vector2.up;
-		rb.AddForce (viktor * Input.GetAxis("Vertical"));
-		peikkos.AddForce (viktor * Input.GetAxis("Vertical"));
+		Vector3 input = new Vector2 (Input.GetAxis("Horizontal"),Input.GetAxis("Vertical"));
+		Vector3 inputRaw = new Vector2 (Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+		if (input.sqrMagnitude > 1f) {
+			input.Normalize ();
+		}
+		if (inputRaw.sqrMagnitude > 1f) {
+			inputRaw.Normalize ();
+		}
+		if (inputRaw != Vector3.zero) {
+			target = input; 
+		}
+		Vector3 vectorToTarget = target;
+		float angle = (Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg)- 90;
+		Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
+		peikkos.transform.rotation = Quaternion.Slerp(peikkos.transform.rotation, q, Time.deltaTime * speed);
 
-		//transform.rotation = ship.rotation;
+		//rb.rotation += (Input.GetAxis ("Cabin") * rotationSpeed);
+		//engineRotation = peikko.transform.rotation;
+		Vector2 viktor = peikkos.transform.rotation * Vector2.up ;
 
-
-
-
-	
+		if(Input.GetAxisRaw("Vertical")!= 0||Input.GetAxisRaw("Horizontal")!=0){
+			rb.AddForce (viktor * accelerationRate);
+			peikkos.AddForce (viktor *accelerationRate);
+		}
+		mousepos = Input.mousePosition;
+		screenpos = Camera.main.ScreenToWorldPoint (new Vector3 (mousepos.x, mousepos.y, transform.position.z - Camera.main.transform.position.z)); 
+		zEU = transform.eulerAngles;
+		zEU.z = (Mathf.Atan2 ((screenpos.y - transform.position.y), (screenpos.x - transform.position.x)) * Mathf.Rad2Deg) - 100; 
+		transform.eulerAngles = zEU; 
 	}
 }

@@ -24,6 +24,6 @@ public class ParticleCollisionOnObject : MonoBehaviour {
 			particleCollisionCount = 0;
 			Destroy (gameObject); 
 		}
-		Debug.Log (particleCollisionCount.ToString());
+		//Debug.Log (particleCollisionCount.ToString());
 	}
 }
