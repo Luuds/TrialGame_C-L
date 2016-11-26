@@ -3,7 +3,7 @@ using System.Collections;
 
 public class ParticleCollisionOnObject : MonoBehaviour {
 
-
+	public int hitpoints;
 	SpriteRenderer spr; 
 	Color newColour; 
 	int particleCollisionCount; 
@@ -19,7 +19,7 @@ public class ParticleCollisionOnObject : MonoBehaviour {
 	}
 	// Update is called once per frame
 	void Update () {
-		if (particleCollisionCount >= 100) {
+		if (particleCollisionCount >= hitpoints) {
 
 			particleCollisionCount = 0;
 			Destroy (gameObject); 

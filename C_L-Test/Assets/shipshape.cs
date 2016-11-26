@@ -4,7 +4,7 @@ using System.Collections;
 public class shipshape : MonoBehaviour {
 
 	public GameObject peikko;
-
+	public GameObject player;
 	public float maxSpeed = 10f;
 	public float accelerationRate = 5f;
 	public float rotationSpeed = 3.6f;
@@ -13,6 +13,7 @@ public class shipshape : MonoBehaviour {
 	public Quaternion engineRotation;
 	Rigidbody2D rb;
 	Rigidbody2D peikkos;
+	Rigidbody2D playerrb;
 	Vector3 target; 
 	Vector2 mousepos; 
 	Vector3 screenpos; 
@@ -22,6 +23,7 @@ public class shipshape : MonoBehaviour {
 		rb = GetComponent<Rigidbody2D> ();
 		peikkos = peikko.GetComponent<Rigidbody2D> ();
 		target = new Vector2 (0, 1); 
+		playerrb = player.GetComponent<Rigidbody2D> ();
 	}
 
 	// Update is called once per frame
@@ -50,8 +52,9 @@ public class shipshape : MonoBehaviour {
 		Vector2 viktor = peikkos.transform.rotation * Vector2.up ;
 
 		if(Input.GetAxisRaw("Vertical")!= 0||Input.GetAxisRaw("Horizontal")!=0){
-			rb.AddForce (viktor * accelerationRate);
-			peikkos.AddForce (viktor *accelerationRate);
+			//rb.AddForce (viktor * accelerationRate);
+			//peikkos.AddForce (viktor *accelerationRate);
+			playerrb.AddForce (viktor *accelerationRate);
 		}
 		mousepos = Input.mousePosition;
 		screenpos = Camera.main.ScreenToWorldPoint (new Vector3 (mousepos.x, mousepos.y, transform.position.z - Camera.main.transform.position.z)); 
