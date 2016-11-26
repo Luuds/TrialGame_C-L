@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\AsteroidBehavior.cs" />
+     <Compile Include="Assets\BackgroundBehavior.cs" />
      <Compile Include="Assets\MonsterBehavior.cs" />
      <Compile Include="Assets\ParticleCollisionOnObject.cs" />
      <Compile Include="Assets\RotLock.cs" />
