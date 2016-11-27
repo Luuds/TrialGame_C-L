@@ -1,6 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+
+/*
+ *  ######## THIS SCRIPT IS NO LONGER USED ############
+ *  Everything happens in the "AsteroidBehavior" script.
+ * 
+ */
+
 public class MonsterBehavior : MonoBehaviour {
 
 	public Transform aggroArea;
@@ -39,11 +46,8 @@ public class MonsterBehavior : MonoBehaviour {
 			Debug.Log (viktor);
 			*/
 		}
-
-
+			
 		//Being shot at by particles
-
-
 
 	}
 }

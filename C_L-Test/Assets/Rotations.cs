@@ -15,10 +15,10 @@ public class Rotations : MonoBehaviour {
 	float tarY; 
 	float tarXcur; 
 	float tarYcur;
-	Rigidbody2D rigidbod; 
+	//Rigidbody2D rigidbod; 
 	// Use this for initialization
 	void Start () {
-		rigidbod = GetComponent<Rigidbody2D> (); 
+		//rigidbod = GetComponent<Rigidbody2D> (); 
 
 	}
 	

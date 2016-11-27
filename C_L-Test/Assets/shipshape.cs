@@ -11,7 +11,7 @@ public class shipshape : MonoBehaviour {
 	public float speed;
 
 	public Quaternion engineRotation;
-	Rigidbody2D rb;
+	//Rigidbody2D rb;
 	Rigidbody2D peikkos;
 	Rigidbody2D playerrb;
 	Vector3 target; 
@@ -20,7 +20,7 @@ public class shipshape : MonoBehaviour {
 	Vector3 zEU; 
 	// Use this for initialization
 	void Start () {
-		rb = GetComponent<Rigidbody2D> ();
+		//rb = GetComponent<Rigidbody2D> ();
 		peikkos = peikko.GetComponent<Rigidbody2D> ();
 		target = new Vector2 (0, 1); 
 		playerrb = player.GetComponent<Rigidbody2D> ();

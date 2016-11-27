@@ -49,6 +49,7 @@
      <Compile Include="Assets\BackgroundBehavior.cs" />
      <Compile Include="Assets\MonsterBehavior.cs" />
      <Compile Include="Assets\ParticleCollisionOnObject.cs" />
+     <Compile Include="Assets\RockProjectileBehavior.cs" />
      <Compile Include="Assets\RotLock.cs" />
      <Compile Include="Assets\Rotations.cs" />
      <Compile Include="Assets\enginering.cs" />
