@@ -52,7 +52,9 @@ public class AsteroidBehavior : MonoBehaviour {
 		// If it didn't die, check if a monster lurks within it!
 		if (!quantedStateObserved && !isMonster){
 			quantedStateObserved = true;
-			if (quantumProbability > 30f) { // IT WAS A MONSTER ALL A LONG. YOU MONSTER. Quantum physics is a bitch.
+			Debug.Log (PlasmaTorch.probabilityInterpol);
+
+			if (quantumProbability < 30f) { // IT WAS A MONSTER ALL A LONG. YOU MONSTER. Quantum physics is a bitch.
 				// Transform into a monster!
 				isMonster = true;
 
