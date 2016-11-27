@@ -1,13 +1,16 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\AsteroidBehavior.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\BackgroundBehavior.cs">
     <Files>
-      <File FileName="Assets\Rotations.cs" Line="19" Column="32" />
-      <File FileName="Assets\AsteroidBehavior.cs" Line="23" Column="9" />
+      <File FileName="Assets\Rotations.cs" Line="1" Column="1" />
+      <File FileName="Assets\AsteroidBehavior.cs" Line="1" Column="1" />
+      <File FileName="Assets\BackgroundBehavior.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="C:\Users\ludde\Documents\TrialGame_C-L\C_L-Test\Assets\HealthBar.cs" line="12" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>
