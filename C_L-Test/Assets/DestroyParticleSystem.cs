@@ -6,7 +6,7 @@ public class DestroyParticleSystem : MonoBehaviour {
 	// Use th:is for initialization
 	void Update () {
 		timer +=1f * Time.fixedDeltaTime;
-		Debug.Log (timer.ToString ());
+	
 		if (timer >= 7f) {
 			Destroy (gameObject);
 		}
