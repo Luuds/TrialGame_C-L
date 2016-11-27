@@ -41,6 +41,7 @@ public class AsteroidBehavior : MonoBehaviour {
 		Vector2 viktoria = new Vector2(Random.Range(-20f,20f) - clone.transform.position.x, Random.Range(-20f,20f) - clone.transform.position.y);
 		clone.GetComponent<Rigidbody2D>().velocity = (viktoria * 0.15f);
 		clone.GetComponent<Animator> ().SetBool (moveHash, false);
+		DeathFX ();
 		Destroy (gameObject);
 	}
 
@@ -51,7 +52,7 @@ public class AsteroidBehavior : MonoBehaviour {
 		// If it didn't die, check if a monster lurks within it!
 		if (!quantedStateObserved && !isMonster){
 			quantedStateObserved = true;
-			if (Random.Range (0f, 100f) < quantumProbability) { // IT WAS A MONSTENR ALL A LONG. YOU MONSTER. Quantum physics is a bitch.
+			if (Random.Range (0f, 100f) < quantumProbability) { // IT WAS A MONSTER ALL A LONG. YOU MONSTER. Quantum physics is a bitch.
 				// Transform into a monster!
 				isMonster = true;
 
@@ -61,13 +62,10 @@ public class AsteroidBehavior : MonoBehaviour {
 			}
 		} else{
 			hitPoints -= 1; // Die asteroid/monster, die! Reveal to me your bounty.
-			Rigidbody2D body = other.GetComponent<Rigidbody2D>();
-			if (body != null){
-				Debug.Log ("Push push.");
-				Vector2 direction = other.transform.position - gameObject.transform.position;
-				direction = direction.normalized;
-				body.AddForce (direction * 50f);
-			}
+			Rigidbody2D body = gameObject.GetComponent<Rigidbody2D>();
+			Vector2 direction = gameObject.transform.position - other.transform.position;
+			direction = direction.normalized;
+			body.AddForce (direction * 10f);
 		}
 			
 	}
@@ -78,6 +76,23 @@ public class AsteroidBehavior : MonoBehaviour {
 			Debug.Log ("There is no escape!");
 			RespawnAsteroid ();
 		}
+	}
+
+	void DeathFX(){
+		GameObject deathFX;
+		if (gameObject.CompareTag ("Green")) {
+			Debug.Log ("Green explosion");
+			deathFX = (GameObject)Instantiate (Resources.Load ("RockBurst1"), new Vector2 (transform.position.x, transform.position.y), transform.rotation);
+		}
+		if (gameObject.CompareTag ("Red")) {
+			Debug.Log ("Red explosion");
+			deathFX = (GameObject)Instantiate (Resources.Load ("RockBurst2"), new Vector2 (transform.position.x, transform.position.y), transform.rotation);
+		}
+		if (gameObject.CompareTag ("Yellow")) {
+			Debug.Log ("Yellow explosion");
+			deathFX = (GameObject)Instantiate (Resources.Load ("RockBurst3"), new Vector2 (transform.position.x, transform.position.y), transform.rotation);
+		}
+		
 	}
 		
 	void ThrowRock(GameObject source, GameObject target) {
