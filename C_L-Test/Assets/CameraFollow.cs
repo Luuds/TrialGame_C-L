@@ -12,7 +12,7 @@ public class CameraFollow : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void LateUpdate () {
+	void Update () {
 		transform.position = Vector3.SmoothDamp (transform.position, GameObject.FindWithTag ("Player").transform.position + offset,ref velocity ,smoothtime);
 	}
 }
