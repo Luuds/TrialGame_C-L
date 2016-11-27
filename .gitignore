@@ -1,1 +1,4 @@
 C_L-Test/Temp/UnityLockfile
+*.dwlt
+*.info
+*.backup
