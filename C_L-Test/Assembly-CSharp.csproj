@@ -45,19 +45,23 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\AsteroidBehavior.cs" />
-     <Compile Include="Assets\BackgroundBehavior.cs" />
-     <Compile Include="Assets\CameraFollow.cs" />
-     <Compile Include="Assets\DestroyParticleSystem.cs" />
-     <Compile Include="Assets\MonsterBehavior.cs" />
-     <Compile Include="Assets\ParticleCollisionOnObject.cs" />
-     <Compile Include="Assets\PlasmaTorch.cs" />
-     <Compile Include="Assets\RockProjectileBehavior.cs" />
-     <Compile Include="Assets\RotLock.cs" />
-     <Compile Include="Assets\Rotations.cs" />
-     <Compile Include="Assets\enginering.cs" />
-     <Compile Include="Assets\planetPara.cs" />
-     <Compile Include="Assets\shipshape.cs" />
+     <Compile Include="Assets\Scripts\AsteroidBehavior.cs" />
+     <Compile Include="Assets\Scripts\BackgroundBehavior.cs" />
+     <Compile Include="Assets\Scripts\CameraFollow.cs" />
+     <Compile Include="Assets\Scripts\DestroyAfterPlay.cs" />
+     <Compile Include="Assets\Scripts\DestroyParticleSystem.cs" />
+     <Compile Include="Assets\Scripts\Missile.cs" />
+     <Compile Include="Assets\Scripts\MissileLauncher.cs" />
+     <Compile Include="Assets\Scripts\PlasmaTorch.cs" />
+     <Compile Include="Assets\Scripts\PlayerBehavior.cs" />
+     <Compile Include="Assets\Scripts\RockProjectileBehavior.cs" />
+     <Compile Include="Assets\Scripts\RotLock.cs" />
+     <Compile Include="Assets\Scripts\Rotations.cs" />
+     <Compile Include="Assets\Scripts\UIHullInt.cs" />
+     <Compile Include="Assets\Scripts\UIResources.cs" />
+     <Compile Include="Assets\Scripts\enginering.cs" />
+     <Compile Include="Assets\Scripts\planetPara.cs" />
+     <Compile Include="Assets\Scripts\shipshape.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
